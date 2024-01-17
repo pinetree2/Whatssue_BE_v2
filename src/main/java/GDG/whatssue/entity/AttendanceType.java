@@ -1,8 +1,8 @@
 package GDG.whatssue.entity;
 
 public enum AttendanceType {
-    ABSENCE,
     ATTENDANCE,
+    ABSENCE,
     OFFICIAL_ABSENCE
 
 }
