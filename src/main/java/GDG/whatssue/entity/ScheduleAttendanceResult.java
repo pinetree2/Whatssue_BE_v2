@@ -2,20 +2,21 @@ package GDG.whatssue.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
 import lombok.Getter;
 
 @Getter
 @Entity
-public class OfficialAbsenceRequest {
+public class ScheduleAttendanceResult extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "official_absence_request_id")
+    @Column(name = "schedule_attendance_result_id")
     private Long id;
 
     @ManyToOne
@@ -26,4 +27,7 @@ public class OfficialAbsenceRequest {
     @JoinColumn(name = "schedule_id", nullable = false)
     private Schedule schedule;
 
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private AttendanceType attendanceType;
 }

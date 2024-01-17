@@ -6,24 +6,28 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.OneToOne;
 import lombok.Getter;
 
 @Getter
 @Entity
-public class OfficialAbsenceRequest {
+public class MemberAttendanceResult {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "official_absence_request_id")
+    @Column(name = "member_attendance_result_id")
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "club_member_id", nullable = false)
+    @OneToOne
+    @JoinColumn(name = "club_id", nullable = false)
     private ClubMember clubMember;
 
-    @ManyToOne
-    @JoinColumn(name = "schedule_id", nullable = false)
-    private Schedule schedule;
+    @Column(nullable = false)
+    private int checkCount;
 
+    @Column(nullable = false)
+    private int absentCount;
+
+    @Column(nullable = false)
+    private int officialCount;
 }

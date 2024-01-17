@@ -2,12 +2,16 @@ package GDG.whatssue.entity;
 
 
 import jakarta.persistence.*;
+import java.util.List;
+import lombok.Getter;
 
 @Entity
-@Table(name="Club")
-public class Club {
+public class Club extends BaseEntity {
+
     @Id
-    private Long clubId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "club_id")
+    private Long id;
 
     @Column(nullable = false)
     private String clubName;
@@ -20,4 +24,14 @@ public class Club {
 
     @Column(nullable = false)
     private String clubCode;
+
+    @OneToMany(mappedBy = "club")
+    private List<ClubMember> clubMemberList;
+
+    @OneToMany(mappedBy = "club")
+    private List<ClubJoinRequest> clubJoinRequestList;
+
+    @OneToMany(mappedBy = "club")
+    private List<Schedule> scheduleList;
+
 }

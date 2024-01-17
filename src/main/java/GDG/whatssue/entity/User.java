@@ -1,11 +1,14 @@
 package GDG.whatssue.entity;
 
 import jakarta.persistence.*;
+import java.util.List;
+import lombok.Getter;
 
+@Getter
 @Entity
-@Table(name="User")
-public class User {
+public class User extends BaseEntity {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
 
     @Column(nullable = false)
@@ -22,5 +25,8 @@ public class User {
 
     @Column(nullable = false)
     private String userPhone;
+
+    @OneToMany(mappedBy = "user")
+    private List<ClubJoinRequest> clubJoinRequestList;
 
 }
