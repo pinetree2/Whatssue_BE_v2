@@ -35,6 +35,9 @@
 - GithubActions
 - Nginx (도입 예정)
 
+### Project Architecture 
+![whatssue drawio (2)](https://github.com/pinetree2/Whatssue_BE_v2/assets/79689822/309fd137-8af6-49ae-bd30-77389f3e259d)
+
 ---
 
 ###  기획 및 설계
